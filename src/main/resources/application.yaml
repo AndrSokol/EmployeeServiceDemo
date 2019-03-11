@@ -1,0 +1,29 @@
+server:
+  port: 8085
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/crud_app?createDatabaseIfNotExist=true&nullNamePatternMatchesAll=true&useSSL=false&useUnicode=true&characterEncoding=utf8&caseSensitive=true&useTimezone=true&serverTimezone=GMT
+    username: root
+    password: root
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+
+logging:
+  pattern:
+    console: "%d{HH:mm:ss}|%-5level|%logger{36}= %msg%n"
+  file: crud_app.log
+  level:
+    "root": INFO
+    com.crud.app.demo: TRACE
+#    org.apache.http: ERROR
+#    com.amazonaws: ERROR
+    org.springframework: ERROR
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: ERROR
+    com.fasterxml.jackson: ERROR
+    org.hibernate: ERROR # show SQL queries
+    org.hibernate.type: ERROR # show SQL parameters
+    org.hibernate.type.descriptor.sql.BasicBinder: ERROR
